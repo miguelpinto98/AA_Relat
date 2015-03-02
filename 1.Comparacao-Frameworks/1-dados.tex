@@ -21,8 +21,8 @@ ORDER BY BOOK.TITLE
 \item \textbf{Java}
 \begin{verbatim}
 create.selectFrom(BOOK)
-.where(BOOK.PUBLISHED_IN.eq(2011))
-.orderBy(BOOK.TITLE)
+      .where(BOOK.PUBLISHED_IN.eq(2011))
+      .orderBy(BOOK.TITLE)
 \end{verbatim}
 \end{itemize}
 Surgiu como resposta para algumas das desvantagens inerentes ao uso de frameworks ORM. Alguns dos seus pontos fortes são:
