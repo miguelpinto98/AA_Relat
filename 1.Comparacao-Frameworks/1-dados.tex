@@ -1,1 +1,50 @@
 \section{Camada de Dados}
+A camada de dados funciona como uma interface para persistir os dados/objetos manipulados pela camada de negócio. Esta interação entre as camadas pode ser baseada numa abordagem centrada em qualquer uma delas. Temos por isso de um lado as frameworks ORM, como o Hibernate, e por outro lado as frameworks que colocam a base de dados em primeiro lugar, como o jOOQ. Apresentaremos ainda a biblioteca DbUtils, uma alternativa que simplifica a utilização do JDBC.
+\subsection{Hibernate}
+O Hibernate é a framework ORM mais popular. O mapeamento entre objetos e os dados existentes nas tabelas da base de dados pode ser configurado através de um ficheiro XML ou Java Annotations.\par
+Apresenta as seguintes vantagens:
+\begin{itemize}
+\item \textbf{Produtividade} Permite persistir o estado dos objetos de forma muito simples, não sendo sequer necessário conhecimentos de SQL.
+\item \textbf{Manutenibilidade} Permite reduzir o número de linhas de código, pelo que é mais fácil perceber o sistema e efetuar refactoring.
+\item \textbf{Portabilidade} Facilmente se muda de base de dados, bastando proceder a algumas mudanças no ficheiro de configuração.
+\end{itemize}
+A principal desvantagem tem que ver com o impacto em termos desempenho.
+\subsection{jOOQ}
+Esta ferramenta permite gerar código Java a partir da base de dados e escrever código Java com uma sintaxe mais próxima do SQL. Por exemplo:\par
+\begin{itemize}
+\item \textbf{SQL}
+\begin{verbatim}
+SELECT * FROM BOOK
+WHERE BOOK.PUBLISHED_IN = 2011
+ORDER BY BOOK.TITLE
+\end{verbatim}
+\item \textbf{Java}
+\begin{verbatim}
+create.selectFrom(BOOK)
+.where(BOOK.PUBLISHED_IN.eq(2011))
+.orderBy(BOOK.TITLE)
+\end{verbatim}
+\end{itemize}
+Surgiu como resposta para algumas das desvantagens inerentes ao uso de frameworks ORM. Alguns dos seus pontos fortes são:
+\begin{itemize}
+\item \textbf{Base de Dados em Primeiro Lugar} Permite utilizar todas as capacidades dos RDBMs e do SQL.
+\item \textbf{Typesafe SQL} A linguagem SQL é type safe, e essa característica é mantida no código Java.
+\item \textbf{Active Records} Usando este padrão, não é necessário escrever comandos SQL para lidar com as operações do tipo CRUD.
+\item \textbf{Standadização} Permite utilizar qualquer dialeto do SQL, pois as expressões são adaptadas automaticamente à base de dados utilizada. Assim, o mesmo código funcionará em qualquer base de dados.
+\item \textbf{Procedures} O gerador de código também gera métodos para cada procedimento.
+\end{itemize}
+\subsection{DbUtils}
+Esta biblioteca foi concebida com o intuito de facilitar a utilização do JDBC, reduzindo o código necessário para efetuar queries e updates. Apresenta as seguintes vantagens:
+\begin{itemize}
+\item Redução da probabilidade de ocorrência de erros inerentes à gestão de recursos/ligações.
+\item Código mais limpo e legível.
+\item Geração automática de JavaBeans a partir dos ResultSets.
+\end{itemize}
+\subsection{Selecção de uma alternativa}
+Todas as alternativas têm as suas vantagens e desvantagens, pelo que a escolha deve ser ponderada consoante o caso:
+\begin{itemize}
+\item \textbf{Hibernate} Se quisermos maior produtividade e abstrair ao máximo a camada de dados.
+\item \textbf{jOOQ} Se pretendermos tirar partido das vantagens do SQL, esta alternativa possibilita fazê-lo diretamente em Java de forma rápida e segura.
+\item \textbf{DbUtils} Se o projeto em causa for de dimensão reduzida e se apenas se pretender uma alternativa ao JDBC.
+\end{itemize}
+\end{document}
