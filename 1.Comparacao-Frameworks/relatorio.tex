@@ -1,10 +1,23 @@
-\documentclass{article}
-
+\documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[portuges]{babel}
 \usepackage{a4wide}
 \usepackage{setspace}
 \usepackage{graphicx}
+\usepackage{verbatim}
+\usepackage{fancyvrb}
+
+\newcommand{\paragraphnl}[1]{\paragraph{#1}\mbox{}\\}
+
+\DefineVerbatimEnvironment
+{MyVerbatim}{Verbatim}
+{gobble=0,frame=single}
+\fvset{fontsize=\normalsize}
+
+\DefineVerbatimEnvironment
+{MyVerbatims}{Verbatim}
+{gobble=0,frame=single}
+\fvset{fontsize=\scriptsize}
 
 \begin{document}
 
