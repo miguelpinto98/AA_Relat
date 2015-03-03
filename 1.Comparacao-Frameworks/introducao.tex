@@ -1,0 +1,27 @@
+\section{Introdução}
+
+O desenvolvimento de aplicações e as metodologias aplicadas a este processo sempre foram alvo de estudo cuidado e intensivo por parte da comunidade de engenheiros de \textit{software}.
+
+Um dos modelos deste paradigma que mais aceitação reuniu na comunidade foi o modelo de três camadas (\textit{Three Tier Architecture}).
+Este defende a separação clara no desenvolvimento da aplicação de conceitos distintos: a \textbf{interface com o utilizador}, a \textbf{lógica de negócio} e os \textbf{dados}.
+Assim, neste modelo, cada um destes conceitos terá mapeamento direto na sua camada respetiva:
+
+\begin{description}
+
+\item[Camada de Apresentação]
+É a camada responsável pelo desenvolvimento da interação entre o sistema e o utilizador.
+É nesta camada que os pedidos dos clientes serão inicialmente processados e, também, será nesta onde serão exibidos os resultados a estes dos seus pedidos.
+
+\item[Camada de Negócio]
+É nesta camada que se encontra a solução desenhada para o problema.
+Esta apresenta propriedades de dados voláteis.
+Assim, por forma a persisti-los, terá de comunicar com a camada de dados.
+
+\item[Camada de Dados]
+Esta camada é responsável por armazenar os dados do problema.
+Não pode, por isso, ser desassociada a uma base de dados.
+
+\end{description}
+
+O objetivo deste trabalho passa por identificar e analisar, para cada uma destas camadas, primeiro individual e depois globalmente, \textit{frameworks} no âmbito da linguagem de programação \textit{Java} que possam facilitar o processo de desenvolvimento de \textit{software}.\\
+Assim, para cada camada, e mediante a opinião do grupo, será indicada a \textit{framework} que melhor serve os interesses do programador.
