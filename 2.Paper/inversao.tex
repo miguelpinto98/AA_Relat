@@ -1,7 +1,7 @@
 \section{Inversão de controlo}
 
-A Inversão de Controlo é um princípio de concepção de software. Tipicamente, quando queremos construir um programa, apenas codificamos parte do mesmo e recorremos a biblitecas para realizar parte das tarefas; ou seja, o nosso código (específico) depende de código externo (genérico). Usando Inversão de Controlo, a abordagem é a oposta: o código genérico das bibliotecas é que vai necessitar/depender do nosso código específico.
+A Inversão de Controlo é um princípio de concepção de software. Tipicamente, quando queremos construir um programa apenas codificamos parte do mesmo e recorremos a biblitecas para realizar parte das tarefas; ou seja, o nosso código (específico) depende de código externo (reutilizável). Usando Inversão de Controlo, a abordagem é a oposta: o código reutilizável das bibliotecas é que vai necessitar/depender do nosso código específico.
 
-A utilização deste princípio permite aumentar a modularidade e a extensibilidade dos programas. Um exemplo disso mesmo são as frameworks. Estas coordenam a execução das aplicações, o que nos permite ter que definir apenas parte do comportamento das mesmas. Ou seja, funcionam como \textit{esqueletos} à quais apenas temos de disponibilizar os \textit{plugins} necessários. Este tipo de \textit{design} traz vantagens sobretudo em termos de manutenção e teste do código.
+Um exemplo disso mesmo são as frameworks. Estas coordenam a execução das aplicações, o que nos permite ter que definir apenas parte do comportamento das mesmas. Ou seja, funcionam como esqueletos à quais apenas temos de disponibilizar os plugins necessários.
 
 Há várias técnicas que seguem este princípio, como a Injeção de Depedências, que será apresentada na secção seguinte.
