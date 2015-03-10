@@ -31,4 +31,8 @@
 *.vrb
 *.xdy
 *.tdo
+
 2.Paper/article.pdf
+
+# Pdflatex Output
+pdflatex-output
