@@ -4,4 +4,32 @@ A Inversão de Controlo é um princípio de concepção de software. Tipicamente
 
 Um exemplo disso mesmo são as frameworks. Estas coordenam a execução das aplicações, o que nos permite ter que definir apenas parte do comportamento das mesmas. Ou seja, funcionam como esqueletos aos quais apenas temos de disponibilizar os plugins necessários.
 
+Por forma a melhor explicar este princípio, atente-se no extrato de código retirado e adaptado de um \textit{post} de \textit{Matin Fowler} onde aborda, precisamente, esta questão:
+
+\begin{lstlisting}[caption=]
+puts 'What is your name?'
+name = gets
+process_name(name)
+\end{lstlisting}
+
+Como se pode claramente verificar, o controlo de fluxo deste pequeno programa é inteiramente controlado pelo programador.
+Ele tem a liberdade total de decidir quando perguntar, de quando ler a resposta e de quando a processar.
+
+No entanto, e para se ter uma ideia prática do conceito de Inversão de Controlo, imagine-se, agora, que em vez de se efetuar a leitura através da consola, faz-se recorrendo a um ambiente gráfico:
+
+\begin{lstlisting}[caption=]
+require 'tk'
+root = TkRoot.new()
+name_label = TkLabel.new() {text "What is Your Name?"}
+name_label.pack
+name = TkEntry.new(root).pack
+name.bind("FocusOut") {process_name(name)}
+Tk.mainloop()
+\end{lstlisting}
+
+Como se pode constatar, acontece que agora o programador já não tem controlo da decisão de invocar o método que processará o nome introduzido.
+Assim, cabe à biblioteca de ambiente gráfico decidir quando deverá fazer a invocação do método baseado no \textit{binding} feito.
+Portanto, o controlo foi invertido: em vez de ser o programador a invocar o código da biblioteca, é a biblioteca que invoca o código da aplicação.
+Este é o conceito que está na base da Inversão do Controlo.
+
 Há várias técnicas que seguem este princípio, como a Injeção de Depedências, que será apresentada na secção seguinte.
