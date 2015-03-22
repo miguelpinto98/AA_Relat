@@ -1,0 +1,74 @@
+\section{Injeção de Dependências}
+
+O \textit{pattern} de injeção de dependências é uma técnica que pretende diminuir as junções entre classes tornando assim a evolução do \textit{software} mais suave e fácil. É uma das formas de se fazer Inversão de Controlo, descrita na secção anterior.
+
+Existem três formas principais de se fazer injeção de dependências, através de \textit{Constructor Injection}, \textit{Setter Injection} e \textit{Interface Injection} ou por um \textit{Service Locator}.
+
+Nas próximas subseções iremos abordar estes métodos, apresentando algumas soluções.
+
+\subsection{Constructor Injection}
+Neste método, as dependências do objeto são injetadas diretamente no construtor. Depois da classe \textit{Stand} ser instanciada é possível atribuir à variável de instância \textit{veiculo} o objeto do qual ela depende.
+
+\begin{lstlisting}[caption=Injeção pelo Construtor]
+public class Stand {
+  private Veiculo veiculo;
+
+  public Stand(Veiculo veiculo) {
+    this.veiculo = veiculo;
+  }
+}
+\end{lstlisting}
+
+\subsection{Setter Injection}
+Neste procedimento é utlizado o método \textit{setter}, \textit{setVeiculo}, que permite injectar através dos argumentos de entrada do método as dependências para a variável de instância do objeto.
+
+\begin{lstlisting}[caption=Injeção pelo Setter]
+public class Stand {
+  private Veiculo veiculo;
+
+  @Inject
+  @Required
+  public void setVeiculo(Veiculo veiculo) {
+    this.veiculo = veiculo;
+  }
+}
+\end{lstlisting}
+
+\subsection{Interface Injection}
+Desenhou-se uma interface onde os métodos \textit{setters} aceitam dependências. Então quando se implementa esta interface na classe \textit{Stand} é necessário definir os métodos da interface e através do método \textit{setVeiculo} é possível fazer injeção de dependências nos objetos da classe.
+
+\begin{lstlisting}[caption=Injeção pela Interface]
+public interface injectVeiculo {
+  public void setVeiculo(Veiculo veiculo);
+}
+
+public class Stand implements injectVeiculo {
+  private Veiculo veiculo;
+
+  public void setVeiculo(Veiculo veiculo) {
+    this.veiculo = veiculo;
+  }
+}
+\end{lstlisting}
+
+\subsection{Service Locator}
+A principal idéia por trás de um \textit{Service Locator} é ter um objeto que saiba adquirir todos os serviços da aplicação quando precisar. Assim, o \textit{Service Locator} para o exemplo que se segue tem um método que retorna uma referência do \textit{veiculo} quando é necessário.
+
+\begin{lstlisting}[caption=Injeção por Service Locator]
+public class ServiceLocator {
+  public static Veiculo getVeiculo() {
+    return soleInstance.veiculo;
+  }
+
+  private static ServiceLocator soleInstance;
+  private Veiculo veiculo;
+}
+
+public class Stand {
+  private Veiculo veiculo;
+
+  public Stand() {
+    this.veiculo = ServiceLocator.getVeiculo();
+  }
+}
+\end{lstlisting}
