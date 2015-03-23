@@ -26,6 +26,20 @@ Utilizar Facade quando:
 
 Os clientes comunicam com o subsistema através do envio de pedidos ao Facade, que redireciona os mesmos para as classes apropriadas do subsistema. Ainda que, os clientes que utilizam este \textit{pattern} não tem que aceder aos objetos do seu subsistema diretamente.\\
 
+\textbf{Implementação}
+
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=0.7]{img/facade_diagrama}
+\caption{Diagrama de classe}
+\end{figure}
+
+Na estrutura seguinte é criada uma interface \textit{Shape} que é implementada por as outras classes do subsistema.
+
+A classe que define o Facade é a \textit{ShapeMaker} e é onde estão definidos os métodos que fornecem contacto aos clientes e as rotinas de gestão dos pedidos para o subsistema.
+
+Por último, a classe \textit{FacadePatternDemo} será o cliente que faz pedidos à classe Facade definida anteriormente.\\
+
 \textbf{Vantagens}
 
 \begin{itemize}
@@ -34,16 +48,5 @@ Os clientes comunicam com o subsistema através do envio de pedidos ao Facade, q
 \end{itemize}
 
 
-\textbf{Implementação}
 
-\begin{figure}[!h]
-\centering
-\includegraphics[scale=0.5]{img/facade_diagrama}
-\caption{Antes e depois da utilização do Facade}
-\end{figure}
-
-% implementação
- Nós vamos criar uma interface Forma e classes concretas implementando a interface Shape. A ShapeMaker classe de fachada é definido como um próximo passo.
-
-% Classe ShapeMaker usa as classes concretas para delegar as chamadas de usuários para essas classes. FacadePatternDemo, a nossa classe demo, usará classe ShapeMaker para mostrar os resultados.
 
