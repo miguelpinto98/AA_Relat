@@ -1,0 +1,49 @@
+\subsection{Facade}
+
+O \textit{pattern} Facade esconde toda a complexidade de uma ou mais classes do sistema e fornece uma interface, que o cliente pode aceder  para utilizar o sistema.
+
+Ao se utilizar uma Facade, que implementa uma interface, pretende-se reduzir o nível de complexidade no subsistema, aumentando a facilidade de utilização.\\
+
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=0.5]{img/facade-estrutura}
+\caption{Antes e depois da utilização do Facade}
+\end{figure}
+
+Como vemos na figura anterior, este \textit{pattern} é definido através de uma única classe que fornece os métodos necessários ao cliente e envia os pedidos deste às classes do subsistema.\\
+
+\textbf{Aplicação}
+
+Utilizar Facade quando:
+
+\begin{itemize}
+  \item Se deseja fornecer uma interface simples para um sistema complexo.
+  \item Existe muitas dependências entre clientes e as classes de implementação de uma abstração.
+  \item Se pretende ter uma estrutura em camadas no sistema.\\
+\end{itemize}
+
+\textbf{Colaboração}
+
+Os clientes comunicam com o subsistema através do envio de pedidos ao Facade, que redireciona os mesmos para as classes apropriadas do subsistema. Ainda que, os clientes que utilizam este \textit{pattern} não tem que aceder aos objetos do seu subsistema diretamente.\\
+
+\textbf{Vantagens}
+
+\begin{itemize}
+\item A utilização deste \textit{pattern} permite diminuir as ligações entre os clientes e o sistema.
+\item Para adicionar novas funcionalidades ao sistema seria necessário alterar apenas o Facade, ao invés de alterar os vários objetos do sistema, sem afetar o cliente.\\
+\end{itemize}
+
+
+\textbf{Implementação}
+
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=0.5]{img/facade_diagrama}
+\caption{Antes e depois da utilização do Facade}
+\end{figure}
+
+% implementação
+ Nós vamos criar uma interface Forma e classes concretas implementando a interface Shape. A ShapeMaker classe de fachada é definido como um próximo passo.
+
+% Classe ShapeMaker usa as classes concretas para delegar as chamadas de usuários para essas classes. FacadePatternDemo, a nossa classe demo, usará classe ShapeMaker para mostrar os resultados.
+
