@@ -22,6 +22,13 @@ Utilizar Facade quando:
   \item Se pretende ter uma estrutura em camadas no sistema.\\
 \end{itemize}
 
+\textbf{Participação}
+
+\begin{description}
+  \item[Facade] Sabe quais os tipos do subsistema são responsáveis por tratar um pedido, e portanto trata de gerir os pedidos entre o cliente e o subsistema.
+  \item[Subclasses] Implementa as funcionalidades do subsistema. Desconhece a existência da classe Facade e responde aos pedidos feito por ela.\\
+\end{description}
+
 \textbf{Colaboração}
 
 Os clientes comunicam com o subsistema através do envio de pedidos ao Facade, que redireciona os mesmos para as classes apropriadas do subsistema. Ainda que, os clientes que utilizam este \textit{pattern} não tem que aceder aos objetos do seu subsistema diretamente.\\
@@ -34,7 +41,7 @@ Os clientes comunicam com o subsistema através do envio de pedidos ao Facade, q
 \caption{Diagrama de classe}
 \end{figure}
 
-Na estrutura seguinte é criada uma interface \textit{Shape} que é implementada por as outras classes do subsistema.
+Na estrutura anterior é criada uma interface \textit{Shape} que é implementada por as outras classes do subsistema.
 
 A classe que define o Facade é a \textit{ShapeMaker} e é onde estão definidos os métodos que fornecem contacto aos clientes e as rotinas de gestão dos pedidos para o subsistema.
 
