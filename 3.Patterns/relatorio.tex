@@ -1,0 +1,78 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[portuges]{babel}
+\usepackage{a4wide}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{verbatim}
+\usepackage{fancyvrb}
+\usepackage{hyperref}
+
+\newcommand{\paragraphnl}[1]{\paragraph{#1}\mbox{}\\}
+
+\DefineVerbatimEnvironment
+{MyVerbatim}{Verbatim}
+{gobble=0,frame=single}
+\fvset{fontsize=\normalsize}
+
+\DefineVerbatimEnvironment
+{MyVerbatims}{Verbatim}
+{gobble=0,frame=single}
+\fvset{fontsize=\scriptsize}
+
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+\renewcommand\lstlistingname{Exemplo}
+
+
+
+\begin{document}
+
+\input{capa.tex}
+
+\input{resumo}
+
+\newpage
+\tableofcontents
+
+\newpage
+\input{introducao}
+
+\newpage
+\input{1-criacao}
+
+\newpage
+\input{2-estruturais}
+
+\newpage
+\input{3-comportamento}
+
+\newpage
+\input{conclusao}
+
+\newpage
+\input{referencias}
+
+\end{document}
